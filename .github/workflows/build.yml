@@ -14,24 +14,14 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [18.x]
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: "npm"
-
       - name: Install dependencies
         run: npm install
 
-      - name: Run linting
+      - name: Check linting
         run: npm run lint
 
       - name: Run tests
@@ -42,7 +32,7 @@ jobs:
 
       # Preview deployment
       - name: Deploy Preview
-        if: github.ref == refs/heads/development
+        if: github.ref == 'refs/heads/development'
         uses: amondnet/vercel-action@v25.1.1
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
@@ -54,7 +44,7 @@ jobs:
 
       # Production deployment
       - name: Deploy Production
-        if: github.ref == refs/heads/main
+        if: github.ref == 'refs/heads/main'
         uses: amondnet/vercel-action@v25.1.1
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
