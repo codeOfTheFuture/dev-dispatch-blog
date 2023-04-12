@@ -1,4 +1,4 @@
-name: Vercel Preview/Production Deployments
+name: Node.js CI
 
 env:
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
