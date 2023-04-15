@@ -46,6 +46,7 @@ jobs:
 
       # Production deployment
       - name: Deploy Production
+        if: github.ref == 'refs/heads/main'
         uses: amondnet/vercel-action@v25.1.1
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
