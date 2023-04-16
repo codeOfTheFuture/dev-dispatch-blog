@@ -53,3 +53,4 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           status: ${{ job.status }}
           deployment_id: ${{ steps.deployment.outputs.deployment_id }}
+          env: ${{ fromJSON('["Production", "Preview"]')[github.ref != 'refs/heads/main'] }}
