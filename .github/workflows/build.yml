@@ -33,7 +33,7 @@ jobs:
         with:
           step: start
           token: ${{ secrets.GITHUB_TOKEN }}
-          env: ${{ fromJSON('{"Production":"", "Preview":""}')[github.ref != 'refs/heads/main'] }}
+          env: ${{ fromJSON('["Production", "Preview"]')[github.ref != 'refs/heads/main'] }}
       - name: Checkout Code
         uses: actions/checkout@v2
       - name: Vercel Action
