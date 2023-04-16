@@ -5,10 +5,9 @@ on: [push, pull_request]
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout Code
-        uses: actions/checkout/@v2
+        uses: actions/checkout@v2
 
       - name: Install Node
         uses: actions/setup-node@v2
@@ -29,14 +28,10 @@ jobs:
 
   deploy:
     needs: build
-
     if: github.repository_owner == "codeOfTheFuture" && ((github.event.pull_request.head.repo.full_name == github.repository) || (github.event_name == "push"))
-
     runs-on: ubuntu-latest
-
     permissions:
       deployments: write
-
     steps:
       - name: Start deployment
         uses: bobheadxi/deployments@v1
