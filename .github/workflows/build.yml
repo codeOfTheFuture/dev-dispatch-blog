@@ -39,7 +39,7 @@ jobs:
         with:
           step: start
           token: ${{ secrets.GITHUB_TOKEN }}
-          env: ${{ fromJSON('{"production":"Production", "preview":"Preview"}')[github.ref != 'refs/heads/main'] }}
+          env: ${{ fromJSON('{"Production":"", "Preview":""}')[github.ref != "refs/heads/main"] }}
 
       - name: Checkout Code
         uses: actions/checkout@v2
@@ -48,7 +48,7 @@ jobs:
         uses: amondnet/vercel-action@v25
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-args: ${{ fromJSON('["--prod", ""]')[github.ref != 'refs/heads/main'] }}
+          vercel-args: ${{ fromJSON('["--prod", ""]')[github.ref != "refs/heads/main"] }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           scope: ${{ secrets.VERCEL_ORG_ID }}
