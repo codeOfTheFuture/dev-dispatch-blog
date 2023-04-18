@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import "@/app/globals.css";
 import Header from "@/components/Header";
+import Banner from "@/components/Banner";
 
 export const metadata = {
   title: "Create Next App",
@@ -16,8 +17,8 @@ const RootLayout = ({ children }: Props) => {
     <html lang="en">
       <body>
         <Header />
+        <Banner />
 
-        {/* Banner */}
         {children}
       </body>
     </html>
