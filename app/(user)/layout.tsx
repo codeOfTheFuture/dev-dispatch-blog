@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import "@/app/globals.css";
+import Header from "@/components/Header";
 
 export const metadata = {
   title: "Create Next App",
@@ -13,7 +14,12 @@ interface Props {
 const RootLayout = ({ children }: Props) => {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Header />
+
+        {/* Banner */}
+        {children}
+      </body>
     </html>
   );
 };

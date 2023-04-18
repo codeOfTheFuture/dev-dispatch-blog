@@ -1,9 +1,5 @@
 const HomePage = () => {
-  return (
-    <div>
-      <h1>Dev Dispatch Blog - Preview</h1>
-    </div>
-  );
+  return <div>{/* Home Page */}</div>;
 };
 
 export default HomePage;
